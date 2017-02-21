@@ -48,9 +48,24 @@ public class MeanThread {
 		List<List<Integer>> holder = new ArrayList<>(); // to hold the sub arrays
 		
 		//code to create into N sub arrays
-		for (int i=0;i<allNumbers.size();i+=totalInArray){
-			holder.add(allNumbers.subList(i, Math.min(i+totalInArray, allNumbers.size())));
-		}
+		int count = 0;
+        int j =0;
+
+        //cuont = totalinarray
+        //position = 0 ;
+        //i =0  < total
+        while (count < NumOfThread){
+
+
+            if (count == (NumOfThread)-1){
+                holder2.add(allNumbers.subList(j,allNumbers.size()));
+            }
+            else{
+                holder2.add(allNumbers.subList(j,j+totalInArray));
+            }
+            count++;
+            j+= totalInArray;
+        }
 		System.out.println(holder.get(0).size());
 		
 		
